@@ -1,0 +1,33 @@
+@use "global" as *;
+
+.hamburger__bar {
+  width: rem(24);
+  height: rem(2);
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: $white;
+}
+.hamburger__bar-top {
+  top: rem(8);
+}
+.hamburger__bar-mid {
+  top: 0;
+}
+.hamburger__bar-bottom {
+  bottom: rem(18);
+}
+
+.js-drawer-open.open .hamburger__bar-top {
+  transform: translate(-50%, rem(-7)) rotate(45deg);
+  transition: transform 0.3s;
+}
+.js-drawer-open.open .hamburger__bar-mid {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.js-drawer-open.open .hamburger__bar-bottom {
+  transform: translate(-50%, rem(8)) rotate(-45deg);
+  transition: transform 0.3s;
+}

@@ -1,0 +1,11 @@
+@use "global" as *;
+
+.news__inner--page {
+  @include mq(md) {
+    max-width: 860px + strip-unit($padding-pc) * 2;
+  }
+}
+
+.news__content + .news__content {
+  margin-top: rem(32);
+}

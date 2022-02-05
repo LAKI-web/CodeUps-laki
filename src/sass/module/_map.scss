@@ -1,0 +1,20 @@
+@use "global" as *;
+
+.map {
+  width: 100%;
+  @include mq("md") {
+    max-width: $inner + strip-unit($padding-pc) * 2;
+    padding-right: $padding-pc;
+    padding-left: $padding-pc;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.map iframe {
+  width: 100%;
+  height: rem(300);
+  @include mq(md) {
+    height: rem(367);
+  }
+}

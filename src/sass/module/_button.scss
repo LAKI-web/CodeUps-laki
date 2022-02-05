@@ -1,0 +1,92 @@
+@use "global" as *;
+
+.button {
+  display: inline-block;
+  background-color: $text;
+  font-size: 20px;
+  font-size: rem(20);
+  @include l_spacing(16, 1.6);
+  padding: rem(9);
+  color: $white;
+  border: 1px solid $white;
+  width: 100%;
+  max-width: rem(334);
+  text-align: center;
+  @include mq(md) {
+    font-size: rem(16);
+    @include l_spacing(16, 2);
+    @include l_height(16, 54);
+    max-width: rem(360);
+    padding: rem(2) rem(89);
+    z-index: 1;
+    position: relative;
+    overflow: hidden;
+  }
+}
+.button:hover {
+  @include mq(md) {
+    color: $text;
+    opacity: 1;
+  }
+}
+
+.button:hover::before {
+  @include mq(md) {
+    left: 0;
+  }
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: -100%;
+  background-color: $white;
+  opacity: 1;
+  transition: 0.3s;
+  z-index: -1;
+}
+
+.button--contact {
+  @include mq(md) {
+    font-size: rem(20);
+    @include l_height(20, 29);
+    @include l_spacing(20, 2);
+    padding: rem(15);
+  }
+}
+
+.button--news {
+  @include mq(md) {
+    width: 100%;
+    max-width: rem(134);
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0;
+    background-color: $white;
+    color: #000;
+    padding: rem(7);
+    transition: all 0.3s ease 0s;
+    border: none;
+  }
+}
+.button--news:hover {
+  @include mq(md) {
+    color: $white;
+    opacity: 1;
+  }
+}
+.button--news::before {
+  @include mq(md) {
+    background-color: $text;
+    opacity: 1;
+    transition: 0.3s;
+  }
+}
+.button-.button--news::before {
+  @include mq(md) {
+    left: 0;
+  }
+}

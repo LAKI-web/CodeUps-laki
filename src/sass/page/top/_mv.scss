@@ -1,0 +1,37 @@
+@use "global" as *;
+
+.mv {
+  position: relative;
+}
+
+.mv__wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+.mv__title {
+  font-size: rem(28);
+  font-weight: 700;
+  @include l_spacing(28, 0.5);
+  @include l_height(28, 28);
+  @include mq(md) {
+    font-size: rem(50);
+    @include l_spacing(50, 0.5);
+  }
+}
+
+.mv__subtitle {
+  font-size: rem(20);
+  font-weight: 700;
+  margin-top: rem(22);
+  @include l_spacing(20, 0.5);
+  @include mq(md) {
+    font-size: rem(25);
+    @include l_spacing(25, 0.5);
+  }
+}

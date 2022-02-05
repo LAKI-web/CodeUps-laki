@@ -1,0 +1,36 @@
+@use "global" as *;
+
+.category {
+}
+.category__inner {
+  padding-top: rem(17);
+  padding-bottom: rem(17);
+  @include mq(md) {
+    padding-bottom: rem(40);
+  }
+}
+
+.category__items {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.category__item {
+  margin: rem(18) rem(13) 0;
+  @include mq(md) {
+    margin: 0 rem(19) 0;
+  }
+}
+
+.category__item a {
+  color: $white;
+  display: inline-block;
+  @include l_spacing(16, 2);
+}
+
+.category__item a.is-active {
+  color: $text;
+  background-color: $white;
+  padding: rem(3) rem(8);
+}

@@ -1,0 +1,92 @@
+@use "global" as *;
+
+.overview {
+  width: 100%;
+  position: relative;
+}
+.overview::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: rem(6);
+  top: rem(177);
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  background-color: $accent;
+  transform: skewY(105deg);
+  z-index: -1;
+  @include mq(md) {
+    height: rem(3);
+    top: rem(570);
+    transform: skewY(135deg);
+  }
+}
+
+.overview__inner {
+  padding-top: rem(72);
+  @include mq(md) {
+    padding-top: rem(150);
+  }
+}
+
+.overview__header {
+  @include mq(md) {
+    padding-top: rem(53);
+    padding-bottom: rem(38);
+  }
+}
+
+.overview__wrapper {
+  background: $main;
+  @include mq(md) {
+    padding-top: rem(81);
+    padding-bottom: rem(80);
+    background: linear-gradient(
+      90deg,
+      $text 0%,
+      $text 70%,
+      transparent 70%,
+      transparent 100%
+    );
+  }
+}
+
+.overview__contents {
+  padding: 0;
+  @include mq(md) {
+    display: flex;
+    flex-direction: row-reverse;
+    padding-right: $padding-pc;
+    padding-left: $padding-pc;
+  }
+}
+
+.overview__img {
+  @include mq(md) {
+    width: 100%;
+    max-width: rem(557);
+  }
+}
+
+.overview__img img {
+  @include mq(md) {
+    height: rem(389);
+    object-fit: cover;
+  }
+}
+
+.overview__body {
+  @include mq(md) {
+    padding-right: rem(33);
+  }
+}
+
+.overview__btn {
+  margin-top: rem(26);
+  text-align: center;
+  @include mq(md) {
+    margin-top: rem(48);
+    text-align: left;
+  }
+}

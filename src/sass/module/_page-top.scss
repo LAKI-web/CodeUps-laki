@@ -1,0 +1,40 @@
+@use "global" as *;
+
+.page-top {
+  position: fixed;
+  right: rem(20);
+  bottom: rem(30);
+  z-index: 1;
+  @include mq(md) {
+    right: rem(31);
+    bottom: rem(21);
+  }
+}
+
+.page-top a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding-top: 10px;
+  width: rem(45);
+  height: rem(45);
+  background-color: $white;
+}
+
+.page-top a:hover {
+  background-color: $main;
+}
+
+.page-top a::before {
+  content: "";
+  width: rem(20);
+  height: rem(20);
+  border-top: 2px solid $text;
+  border-left: 2px solid $text;
+  transform: rotate(45deg);
+}
+
+.page-top a:hover::before {
+  border-color: $white;
+}

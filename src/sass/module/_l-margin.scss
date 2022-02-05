@@ -1,0 +1,63 @@
+@use "global" as *;
+.l-margin {
+  margin-top: rem(24);
+  @include mq(md) {
+    margin-top: rem(32);
+  }
+}
+
+.l-margin--contact {
+  margin-top: rem(120);
+  @include mq(md) {
+    margin-top: rem(150);
+  }
+}
+
+.l-margin--news {
+  margin-top: rem(85);
+  @include mq(md) {
+    margin-top: rem(69);
+  }
+}
+
+.l-margin--content {
+  margin-top: rem(85);
+  @include mq(md) {
+    margin-top: rem(69);
+  }
+}
+
+.l-margin--overview {
+  margin-top: rem(85);
+  @include mq(md) {
+    margin-top: rem(115);
+  }
+}
+
+.l-margin--map {
+  margin-top: rem(120);
+  @include mq(md) {
+    margin-top: rem(80);
+  }
+}
+
+.l-margin--contact-form {
+  margin-top: rem(85);
+  @include mq(md) {
+    margin-top: rem(115);
+  }
+}
+
+.l-margin--article{
+  margin-top: rem(78);
+  @include mq(md) {
+    margin-top: rem(91);
+  }
+}
+
+.l-margin--article-recommend{
+  margin-top: rem(120);
+  @include mq(md) {
+    margin-top: rem(104);
+  }
+}

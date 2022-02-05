@@ -1,0 +1,22 @@
+@use "global" as *;
+
+.common-mv {
+  position: relative;
+}
+
+.common-mv__wrapper{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.common-mv__title{
+  font-size: rem(30);
+  font-weight: bold;
+  line-height: 1;
+  @include l_spacing(30,2);
+  @include mq(md) {
+    font-size: rem(35);
+  }
+}
