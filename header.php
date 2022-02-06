@@ -8,7 +8,6 @@
   <!-- meta情報 -->
   <meta name="description" content="" />
   <meta name="keywords" content="" />
-  <meta name="robots" content="noindex , nofollow" />
   <!-- ogp -->
   <meta property="og:title" content="" />
   <meta property="og:type" content="" />
@@ -22,6 +21,7 @@
 </head>
 
 <body>
+  <?php wp_body_open(); ?>
   <header class="header">
     <div class="header__inner">
       <h1 class="header__logo">
@@ -30,24 +30,24 @@
       <!-- /.header-logo -->
       <nav class="header__nav-pc pc-header-nav u-desktop">
         <ul class="pc-header-nav__items">
-          <li class="pc-header-nav__item"><a href="#">お知らせ</a></li>
-          <li class="pc-header-nav__item"><a href="#">事業内容</a></li>
-          <li class="pc-header-nav__item"><a href="#">制作実績</a></li>
-          <li class="pc-header-nav__item"><a href="#">企業概要</a></li>
-          <li class="pc-header-nav__item"><a href="#">ブログ</a></li>
-          <li class="pc-header-nav__item"><a href="">お問い合わせ</a></li>
+          <li class="pc-header-nav__item"><a href="<?php echo esc_url(home_url('/news')); ?>">お知らせ</a></li>
+          <li class="pc-header-nav__item"><a href="<?php echo esc_url(home_url('/content')); ?>">事業内容</a></li>
+          <li class="pc-header-nav__item"><a href="<?php echo esc_url(home_url('/works')); ?>">制作実績</a></li>
+          <li class="pc-header-nav__item"><a href="<?php echo esc_url(home_url('/overview')); ?>">企業概要</a></li>
+          <li class="pc-header-nav__item"><a href="<?php echo esc_url(home_url('/blog')); ?>">ブログ</a></li>
+          <li class="pc-header-nav__item"><a href="<?php echo esc_url(home_url('/contact')); ?>">お問い合わせ</a></li>
         </ul>
       </nav>
       <!-- /.header__nav-pc -->
       <nav class="header__nav-sp sp-header-nav">
         <ul class="sp-header-nav__items">
-          <li class="sp-header-nav__item"><a href="#">トップ</a></li>
-          <li class="sp-header-nav__item"><a href="#">お知らせ</a></li>
-          <li class="sp-header-nav__item"><a href="#">事業内容</a></li>
-          <li class="sp-header-nav__item"><a href="#">制作実績</a></li>
-          <li class="sp-header-nav__item"><a href="#">企業概要</a></li>
-          <li class="sp-header-nav__item"><a href="#">ブログ</a></li>
-          <li class="sp-header-nav__item"><a href="#">お問い合わせ</a></li>
+          <li class="sp-header-nav__item"><a href="<?php echo esc_url(home_url('/')); ?>">トップ</a></li>
+          <li class="sp-header-nav__item"><a href="<?php echo esc_url(home_url('/news')); ?>">お知らせ</a></li>
+          <li class="sp-header-nav__item"><a href="<?php echo esc_url(home_url('/ content')); ?>">事業内容</a></li>
+          <li class="sp-header-nav__item"><a href="<?php echo esc_url(home_url('/works')); ?>">制作実績</a></li>
+          <li class="sp-header-nav__item"><a href="<?php echo esc_url(home_url('/overview')); ?>">企業概要</a></li>
+          <li class="sp-header-nav__item"><a href="<?php echo esc_url(home_url('/blog')); ?>">ブログ</a></li>
+          <li class="sp-header-nav__item"><a href="<?php echo esc_url(home_url('/contact')); ?>">お問い合わせ</a></li>
         </ul>
       </nav>
       <!-- /.header__nav-sp -->
@@ -61,3 +61,5 @@
     <!-- /.header__inner -->
   </header>
   <!-- /.header -->
+
+  <main>

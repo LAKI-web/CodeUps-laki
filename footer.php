@@ -1,3 +1,6 @@
+</main>
+<!-- /.main -->
+
 <footer class="footer">
   <div class="footer__wrapper">
     <div class="footer__head">
@@ -10,22 +13,22 @@
       <nav class="footer__nav footer-nav">
         <ul class="footer-nav__items">
           <li class="footer-nav__item">
-            <a href="#">トップ</a>
+            <a href="<?php echo esc_url(home_url('/news')); ?>">お知らせ</a>
           </li>
           <li class="footer-nav__item">
-            <a href="#">お知らせ</a>
+            <a href="<?php echo esc_url(home_url('/content')); ?>">事業内容</a>
           </li>
           <li class="footer-nav__item">
-            <a href="#">事業内容</a>
+            <a href="<?php echo esc_url(home_url('/works')); ?>">制作実績</a>
           </li>
           <li class="footer-nav__item">
-            <a href="#">企業概要</a>
+            <a href="<?php echo esc_url(home_url('/overview')); ?>">企業概要</a>
           </li>
           <li class="footer-nav__item">
-            <a href="#">ブログ</a>
+            <a href="<?php echo esc_url(home_url('/blog')); ?>">ブログ</a>
           </li>
           <li class="footer-nav__item">
-            <a href="#">お問い合わせ</a>
+            <a href="<?php echo esc_url(home_url('/contact')); ?>">お問い合わせ</a>
           </li>
         </ul>
       </nav>
