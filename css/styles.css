@@ -385,6 +385,10 @@ select::-ms-expand {
   list-style-position: inside;
 }
 
+.breadcrumb {
+  letter-spacing: 0.0625em;
+}
+
 .button {
   display: inline-block;
   background-color: #333;
@@ -1301,6 +1305,21 @@ select::-ms-expand {
   }
 }
 
+.l-margin--breadcrumb {
+  margin-top: 16px;
+  margin-top: 1rem;
+}
+
+.l-margin--pagenavi {
+  margin-top: 80px;
+  margin-top: 5rem;
+}
+@media screen and (min-width: 768px) {
+  .l-margin--pagenavi {
+    margin-top: 6.5rem;
+  }
+}
+
 .map {
   width: 100%;
 }
@@ -1875,6 +1894,38 @@ select::-ms-expand {
 .sp-header-nav.open {
   visibility: visible;
   opacity: 1;
+}
+
+.wp-pagenavi {
+  clear: both;
+  text-align: center;
+}
+
+.wp-pagenavi a,
+.wp-pagenavi span {
+  color: #fff;
+  background-color: #111;
+  border: 1px solid #fff;
+  padding: 3px 7px;
+  padding: 0.1875rem 0.4375rem;
+  margin: 0 8px;
+  margin: 0 0.5rem;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+  text-align: center;
+  text-decoration: none;
+}
+
+.wp-pagenavi a:hover {
+  color: #111;
+  background-color: #fff;
+  border-color: #fff;
+}
+
+.wp-pagenavi span.current {
+  color: #111;
+  background-color: #fff;
+  border-color: #fff;
 }
 
 .page-content__header {

@@ -12,6 +12,16 @@
   </div>
 </section>
 <!-- /.common-mv -->
+<div class="l-margin--breadcrumb"></div>
+<div class="breadcrumb" typeof="BreadcrumbList" vocab="https://schema.org/">
+  <div class="section-inner">
+    <?php if (function_exists('bcn_display')) {
+      bcn_display();
+    } ?>
+  </div>
+</div>
+<!-- breadcrumb -->
+
 <div class="l-margin--news"></div>
 <div class="news">
   <div class="section-inner news__inner--page">
@@ -40,6 +50,10 @@
   <!-- /.news__inner--page -->
 </div>
 <!-- /.news -->
+<div class="l-margin--pagenavi"></div>
+<?php wp_pagenavi(); ?>
+
+<!-- /.pagenation -->
 
 <div class="l-margin--contact"></div>
 <section class="contact">
