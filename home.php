@@ -12,6 +12,7 @@
   </div>
 </section>
 <!-- /.common-mv -->
+
 <div class="l-margin--breadcrumb"></div>
 <div class="breadcrumb" typeof="BreadcrumbList" vocab="https://schema.org/">
   <div class="section-inner">
@@ -52,7 +53,6 @@
 <!-- /.news -->
 <div class="l-margin--pagenavi"></div>
 <?php wp_pagenavi(); ?>
-
 <!-- /.pagenation -->
 
 <div class="l-margin--contact"></div>
@@ -70,12 +70,11 @@
       テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
     </p>
     <div class="contact__btn">
-      <a href="" class="button button--contact">お問い合わせへ</a>
+      <a href="<?php echo esc_url(home_url('/contact')); ?>" class="button button--contact">お問い合わせへ</a>
     </div>
   </div>
   <!-- /.contact__inner -->
 </section>
 <!-- /.contact -->
-
 
 <?php get_footer(); ?>
