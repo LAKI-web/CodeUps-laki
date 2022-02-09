@@ -25,7 +25,7 @@
   <header class="header">
     <div class="header__inner">
       <h1 class="header__logo">
-        <a href="/"><img src="<?php echo esc_url(get_theme_file_uri('/images/CodeUps.svg')); ?>." alt="CodeUps" /></a>
+        <a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php echo esc_url(get_theme_file_uri('/images/CodeUps.svg')); ?>." alt="CodeUps" /></a>
       </h1>
       <!-- /.header-logo -->
       <nav class="header__nav-pc pc-header-nav u-desktop">
