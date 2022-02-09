@@ -58,3 +58,61 @@ function auto_post_slug($slug, $post_ID, $post_status, $post_type)
 	return $slug;
 }
 add_filter('wp_unique_post_slug', 'auto_post_slug', 10, 4);
+
+
+
+/* --------------------------------------------
+ * 　カスタム投稿タイプ【ブログ】：メインクエリの変更（ブログのアーカイブページにて表示件数を9件にする）
+ * -------------------------------------------- */
+
+function change_set_blog($query)
+{
+	if (is_admin() || !$query->is_main_query()) {
+		return;
+	}
+	if ($query->is_post_type_archive('blog') || is_tax('blog_category')) {
+		$query->set('posts_per_page', '9');
+		return;
+	}
+}
+add_action('pre_get_posts', 'change_set_blog');
+
+
+/* --------------------------------------------
+ * 　カスタム投稿タイプ【ブログ】：タイトルの長さ変更
+ * -------------------------------------------- */
+function change_excerpt_length()
+{
+	$length = 80;
+	if (is_post_type_archive('blog') || is_tax('blog_category')) {
+		return 30; //リターンした時点で処理は終了する
+	}
+	return $length; //デフォルト110文字
+}
+add_filter('excerpt_length', 'change_excerpt_length', 999);
+
+
+/* --------------------------------------------
+ * 　カスタム投稿タイプ【ブログ】：アーカイブページ抜粋文の長さ変更
+ * -------------------------------------------- */
+function change_excerpt_length()
+{
+	$length = 80;
+	if (is_post_type_archive('blog') || is_tax('blog_category')) {
+		return 30; //リターンした時点で処理は終了する
+	}
+	return $length; //デフォルト110文字
+}
+add_filter('excerpt_length', 'change_excerpt_length', 999);
+
+
+/* --------------------------------------------
+ * 　カスタム投稿タイプ【ブログ】：[…]を変更
+ * -------------------------------------------- */
+function change_excerpt_more()
+{
+	if (is_post_type_archive('blog') || is_tax('blog_category')) {
+		return '...'; //リターンした時点で処理は終了する
+	}
+}
+add_filter('excerpt_more', 'change_excerpt_more');

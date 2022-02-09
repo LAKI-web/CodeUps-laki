@@ -15,7 +15,12 @@
     </p>
     <div class="card__info">
       <span class="card__category">
-      カテゴリー
+        <?php
+        $terms = get_the_terms($post->ID, 'blog_category');
+        foreach ($terms as $term) {
+          echo  $term->name;
+        }
+        ?>
       </span>
       <time class="card__date" datetime="<?php the_time('Y-m-d'); ?>"><?php the_time('Y.m.d'); ?></time>
     </div>

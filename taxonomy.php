@@ -26,10 +26,16 @@
 <div class="category">
   <div class="section-inner category__inner">
     <ul class="category__items">
+      <li>
+        <a href="<?php echo esc_url(home_url('/blog')); ?>">ALL</a>
+      </li>
       <?php
-      $terms = get_the_terms($post->ID, 'blog_category');
+      $args = [
+        'taxonomy' => 'blog_category'
+      ];
+      $terms = get_terms($args);
       foreach ($terms as $term) {
-        echo  $term->name;
+        echo '<li class="category__item"><a href="' . get_term_link($term) . '">' . $term->name . '</a></li>';
       }
       ?>
     </ul>

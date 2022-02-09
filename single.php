@@ -30,13 +30,6 @@
               ?>
             </div>
           </div>
-          <figure class="article__thumbnail">
-            <?php if (has_post_thumbnail()) : ?>
-              <?php the_post_thumbnail('full'); ?>
-            <?php else : ?>
-              <img src="<?php echo esc_url(get_theme_file_uri('/images/noimage.jpg')); ?>" alt="NO-IMAGE">
-            <?php endif; ?>
-          </figure>
           <div class="article__content">
             <?php the_content(); ?>
           </div>
