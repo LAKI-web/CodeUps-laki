@@ -46,6 +46,13 @@ function my_script_init()
 add_action('wp_enqueue_scripts', 'my_script_init');
 
 
+//WP-PageNaviのCSSを読み込ませない
+
+function my_deregister_styles()
+{
+	wp_deregister_style('wp-pagenavi');
+}
+add_action('wp_print_styles', 'my_deregister_styles', 100);
 
 /*
 * スラッグ名が日本語だったら自動的に投稿タイプ＋id付与へ変更（スラッグを設定した場合は適用しない）
@@ -76,20 +83,6 @@ function change_set_blog($query)
 	}
 }
 add_action('pre_get_posts', 'change_set_blog');
-
-
-/* --------------------------------------------
- * 　カスタム投稿タイプ【ブログ】：タイトルの長さ変更
- * -------------------------------------------- */
-function change_excerpt_length()
-{
-	$length = 80;
-	if (is_post_type_archive('blog') || is_tax('blog_category')) {
-		return 30; //リターンした時点で処理は終了する
-	}
-	return $length; //デフォルト110文字
-}
-add_filter('excerpt_length', 'change_excerpt_length', 999);
 
 
 /* --------------------------------------------
