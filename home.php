@@ -51,6 +51,7 @@
   <!-- /.news__inner--page -->
 </div>
 <!-- /.news -->
+
 <div class="l-margin--pagenavi"></div>
 <?php wp_pagenavi(); ?>
 <!-- /.pagenation -->

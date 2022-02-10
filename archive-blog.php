@@ -25,8 +25,8 @@
 <div class="category">
   <div class="section-inner category__inner">
     <ul class="category__items">
-      <li>
-        <a href="<?php echo esc_url(home_url('/blog')); ?>">ALL</a>
+      <li class="category__item">
+        <a href="<?php echo esc_url(home_url('/blog')); ?>" <?php if (!is_front_page() && get_post_type() === 'blog') echo ' class="cat-current"'; ?>>ALL</a>
       </li>
       <?php
       $args = [
@@ -34,7 +34,9 @@
       ];
       $terms = get_terms($args);
       foreach ($terms as $term) {
-        echo '<li class="category__item"><a href="' . get_term_link($term) . '">' . $term->name . '</a></li>';
+        echo '<li class="category__item">';
+        echo '<a href="' . get_term_link($term) . '">' . $term->name . '</a>';
+        echo '</li>';
       }
       ?>
     </ul>
@@ -62,6 +64,11 @@
   <!-- /.blog__inner -->
 </section>
 <!-- /.blog -->
+
+<div class="l-margin--pagenavi"></div>
+<?php wp_pagenavi(); ?>
+<!-- /.pagenation -->
+
 <div class="l-margin--contact"></div>
 <section class="contact">
   <div class="contact__inner section-inner">

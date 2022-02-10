@@ -762,7 +762,7 @@ select::-ms-expand {
   letter-spacing: 0.125em;
 }
 
-.category__item a.is-active {
+.category__item a.cat-current {
   color: #333;
   background-color: #fff;
   padding: 3px 8px;

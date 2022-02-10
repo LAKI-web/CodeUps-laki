@@ -29,7 +29,7 @@
   @include l_spacing(16, 2);
 }
 
-.category__item a.is-active {
+.category__item a.cat-current {
   color: $text;
   background-color: $white;
   padding: rem(3) rem(8);
