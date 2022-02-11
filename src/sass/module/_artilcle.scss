@@ -132,3 +132,25 @@
   list-style: decimal;
   list-style-position: inside;
 }
+
+.article__links {
+  margin-top: rem(80);
+  display: flex;
+  width: rem(310);
+  margin: 0 auto;
+  @include mq(md) {
+    margin-top: rem(104);
+  }
+}
+
+.article__link,
+.article__home {
+  color: $white;
+  background-color: $black;
+  border: 1px solid $white;
+  padding: rem(3) rem(12);
+  margin: 0 rem(8);
+  transition: 0.2s ease-in-out;
+  text-align: center;
+  text-decoration: none;
+}
