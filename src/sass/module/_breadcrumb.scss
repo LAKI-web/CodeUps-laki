@@ -3,3 +3,7 @@
 .breadcrumb {
   @include l_spacing(16, 1);
 }
+
+.breadcrumb__inner{
+  padding-top: rem(16);
+}

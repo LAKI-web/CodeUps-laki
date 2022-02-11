@@ -13,9 +13,8 @@
 </section>
 <!-- /.common-mv -->
 
-<div class="l-margin--breadcrumb"></div>
 <div class="breadcrumb" typeof="BreadcrumbList" vocab="https://schema.org/">
-  <div class="section-inner">
+  <div class="section-inner breadcrumb__inner">
     <?php if (function_exists('bcn_display')) {
       bcn_display();
     } ?>
@@ -37,7 +36,9 @@
       foreach ($terms as $term) :
       ?>
         <li class="category__item">
-          <a href=" <?php echo get_term_link($term); ?>" class="<?php if (is_object_in_term(get_the_ID(), 'blog_category', $term->slug)) { echo 'cat-current'; } ?>">
+          <a href=" <?php echo get_term_link($term); ?>" class="<?php if (is_object_in_term(get_the_ID(), 'blog_category', $term->slug)) {
+                                                                  echo 'cat-current';
+                                                                } ?>">
             <?php echo $term->name; ?>
           </a>
         </li>

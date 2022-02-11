@@ -1,8 +1,9 @@
 <?php get_header(); ?>
 
-<div class="l-margin--breadcrumb"></div>
+<div class="l-margin--header"></div>
+
 <div class="breadcrumb" typeof="BreadcrumbList" vocab="https://schema.org/">
-  <div class="section-inner">
+  <div class="section-inner breadcrumb__inner">
     <?php if (function_exists('bcn_display')) {
       bcn_display();
     } ?>
@@ -47,23 +48,71 @@
   <div class="section-inner">
     <h3 class="article-recommend__title">おすすめ記事</h3>
     <div class="article-recommend__items cards">
-      <a href="#" class="cards__item cards__item--recommend card">
-        <figure class="card__img card__img--recommend">
-          <img src="/images/Blog/blog1.jpg" alt="コーディングの画面のPC画像" />
-        </figure>
-        <div class="card__body">
-          <h3 class="card__title card__title--recommend">
-            タイトルが入ります。タイトルが入ります。
-          </h3>
-          <p class="card__text">
-            説明文が入ります。説明文が入ります。説明文が入ります。
-          </p>
-          <div class="card__info">
-            <span class="card__category">カテゴリ</span>
-            <time datetime="2021-07-20" class="card__date">2021.07.20</time>
-          </div>
-        </div>
-      </a>
+      <?php
+      $terms = get_the_terms($post->ID, 'blog_category');
+      foreach ($terms as $term) {
+        $term_slug = $term->slug; // 現在表示している投稿に属しているタームを取得
+      }
+      $args = array(
+        'post_type' => 'blog', // 投稿タイプのスラッグを指定
+        'post__not_in' => array($post->ID), // 現在表示している投稿を除外
+        'posts_per_page' => 4, // 表示件数9件
+        'orderby' =>  'rand', // ランダム
+        'tax_query' => array( // タクソノミーの指定
+          array(
+            'taxonomy' => 'blog_category',
+            'field' => 'slug',
+            'terms' => $term_slug, // 取得したタームを指定
+          )
+        )
+      );
+      $my_query = new WP_Query($args);
+      ?>
+      <?php if ($my_query->have_posts()) : ?>
+        <?php while ($my_query->have_posts()) : $my_query->the_post(); ?>
+          <a href="<?php the_permalink(); ?>" class="cards__item cards__item--recommend card">
+            <figure class="card__img card__img--recommend">
+              <?php if (has_post_thumbnail()) : ?>
+                <?php the_post_thumbnail('full'); ?>
+              <?php else : ?>
+                <img src="<?php echo esc_url(get_theme_file_uri('/images/noimage.jpg')); ?>" alt="NO-IMAGE">
+              <?php endif; ?>
+            </figure>
+            <div class="card__body">
+              <h3 class="card__title card__title--recommend">
+                <?php
+                $word_count = '20'; //表示する文字数
+                $post_title = get_the_title(); //タイトル取得
+                $post_title_count = mb_strlen($post_title); //タイトルの文字数取得
+                $post_title = mb_substr($post_title, 0, $word_count); //タイトルの頭16文字取得
+                echo $post_title; //タイトル表示
+                if ($post_title_count > $word_count) { //表示文字数がタイトル文字数より多い場合
+                  echo '...'; //三点リーダ表示
+                }
+                ?>
+              </h3>
+              <div class="card__info">
+                <span class="card__category">
+                  <?php
+                  $terms = get_the_terms($post->ID, 'blog_category');
+                  foreach ($terms as $term) {
+                    echo  $term->name;
+                  }
+                  ?>
+                </span>
+                <time class="card__date" datetime="<?php the_time('Y-m-d'); ?>"><?php the_time('Y.m.d'); ?></time>
+              </div>
+            </div>
+          </a>
+        <?php endwhile; ?>
+      <?php else :
+        //記事が存在しなかった場合
+        echo '<div class="p-blog__row">';
+        echo '<a href="/" style="pointer-events: none;">すみません。ただいま記事を準備中です。<br>少々お待ちください。</a>';
+        echo '</div>';
+      ?>
+      <?php endif; ?>
+      <?php wp_reset_postdata(); ?>
     </div>
     <!-- /.article-recommend__items -->
   </div>

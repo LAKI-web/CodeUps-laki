@@ -3,9 +3,10 @@
 .category {
 }
 .category__inner {
-  padding-top: rem(17);
-  padding-bottom: rem(17);
+  padding-top: rem(85);
+  padding-bottom: rem(37);
   @include mq(md) {
+    padding-top: rem(115);
     padding-bottom: rem(40);
   }
 }

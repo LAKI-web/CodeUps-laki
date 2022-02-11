@@ -62,13 +62,13 @@
   }
 }
 
-.l-margin--breadcrumb {
-  margin-top: rem(16);
-}
-
 .l-margin--pagenavi{
   margin-top: rem(80);
   @include mq(md) {
     margin-top: rem(104);
   }
+}
+
+.l-margin--header{
+  margin-top: rem(50);
 }
