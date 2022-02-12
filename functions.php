@@ -77,12 +77,24 @@ function change_set_blog($query)
 	if (is_admin() || !$query->is_main_query()) {
 		return;
 	}
-	if ($query->is_post_type_archive('blog') || is_tax('blog_category')) {
+	if ($query->is_post_type_archive('blog')) {
 		$query->set('posts_per_page', '9');
 		return;
 	}
 }
 add_action('pre_get_posts', 'change_set_blog');
+
+function change_set_blog_category($query)
+{
+	if (is_admin() || !$query->is_main_query()) {
+		return;
+	}
+	if ($query->is_tax('blog_category')) {
+		$query->set('posts_per_page', '3');
+		return;
+	}
+}
+add_action('pre_get_posts', 'change_set_blog_category');
 
 
 /* --------------------------------------------

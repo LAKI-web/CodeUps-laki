@@ -1,0 +1,18 @@
+@use "global" as *;
+
+.tag__items {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: rem(-10);
+  margin-top: rem(-10);
+}
+.tag__item {
+  padding: rem(6) rem(5);
+  color: $text;
+  background-color: $category-bg;
+  font-size: rem(14);
+  line-height: 1;
+  @include l_spacing(14, 1);
+  margin-left: rem(10);
+  margin-top: rem(10);
+}

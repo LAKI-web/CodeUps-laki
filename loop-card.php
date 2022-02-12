@@ -19,18 +19,20 @@
       }
       ?>
     </h3>
-    <p class="card__text">
+    <div class="card__text">
       <?php the_excerpt(); ?>
-    </p>
+    </div>
     <div class="card__info">
-      <span class="card__category">
-        <?php
-        $terms = get_the_terms($post->ID, 'blog_category');
-        foreach ($terms as $term) {
-          echo  $term->name;
-        }
-        ?>
-      </span>
+      <div class="card__category tag">
+        <ul class="tag__items">
+          <?php
+          $terms = get_the_terms($post->ID, 'blog_category');
+          foreach ($terms as $term) {
+            echo '<li class="tag__item">' . $term->name . '</li>';
+          }
+          ?>
+        </ul>
+      </div>
       <time class="card__date" datetime="<?php the_time('Y-m-d'); ?>"><?php the_time('Y.m.d'); ?></time>
     </div>
   </div>
