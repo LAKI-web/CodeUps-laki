@@ -5,16 +5,17 @@
   align-items: center;
 }
 
-.article-meta__date{
-  @include l_height(16,32.3);
-  // display: block;
-  // width: rem(88);
-  // @include l_spacing(16,0.4);
-}
-
 .article-meta__category {
   margin-left: rem(24);
+}
+.article-meta__category a {
+  color: $white;
+  background-color: $black;
   padding: rem(8) rem(23);
   border: 1px solid #fff;
-  transition: all 0.3s ease 0s;
+  transition: 0.2s ease-in-out;
+}
+.article-meta__category a:hover {
+  color: $black;
+  background-color: $white;
 }

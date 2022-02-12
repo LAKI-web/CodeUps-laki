@@ -38,21 +38,27 @@
         </div>
         <!-- /.article__inner -->
       </div>
+
+      <div class="article__links">
+        <?php if (get_previous_post_link()) : ?>
+          <div class="article__links-prev">
+            <?php previous_post_link('%link', 'PREV'); ?>
+          </div>
+        <?php endif; ?>
+        <a href="<?php echo esc_url(home_url('/blog')); ?>">一覧</a>
+        <?php if (get_next_post_link()) : ?>
+          <div class="article__links-next">
+            <?php next_post_link('%link', 'NEXT'); ?>
+          </div>
+        <?php endif; ?>
+      </div>
+      <!-- /.article__links -->
+
     <?php endwhile; ?>
   <?php endif; ?>
 </article>
 <!-- /.article -->
 
-<div class="article__links">
-  <?php if (get_previous_post_link()) : ?>
-    <div class="article__link article__link--prev"><?php previous_post_link('%link', 'PREV'); ?></div>
-  <?php endif; ?>
-  <a class="article__home" href="<?php echo esc_url(home_url('/blog')); ?>">一覧</a>
-  <?php if (get_next_post_link()) : ?>
-    <div class="article__link article__link--next"><?php next_post_link('%link', 'NEXT'); ?></div>
-  <?php endif; ?>
-</div>
-<!-- /.article__links -->
 
 <div class="l-margin--article-recommend"></div>
 <div class="article-recommend">

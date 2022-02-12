@@ -56,7 +56,7 @@
         <span class="hamburger__bar hamburger__bar-mid"></span>
         <span class="hamburger__bar hamburger__bar-bottom"></span>
       </button>
-      <!-- /.sp-header-nav__btn -->
+      <!-- /.header__drawer-btn -->
     </div>
     <!-- /.header__inner -->
   </header>
