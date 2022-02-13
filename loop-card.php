@@ -8,16 +8,7 @@
   </figure>
   <div class="card__body">
     <h3 class="card__title">
-      <?php
-      $word_count = '20'; //表示する文字数
-      $post_title = get_the_title(); //タイトル取得
-      $post_title_count = mb_strlen($post_title); //タイトルの文字数取得
-      $post_title = mb_substr($post_title, 0, $word_count); //タイトルの頭16文字取得
-      echo $post_title; //タイトル表示
-      if ($post_title_count > $word_count) { //表示文字数がタイトル文字数より多い場合
-        echo '...'; //三点リーダ表示
-      }
-      ?>
+      <?php the_title(); ?>
     </h3>
     <div class="card__text">
       <?php the_excerpt(); ?>

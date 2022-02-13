@@ -26,19 +26,23 @@
   <div class="section-inner category__inner">
     <ul class="category__items">
       <li class="category__item">
-        <a href="<?php echo esc_url(home_url('/blog')); ?>" <?php if (!is_front_page() && get_post_type() === 'blog') echo ' class="cat-current"'; ?>>ALL</a>
+        <a href="<?php echo esc_url(home_url('/works')); ?>">ALL</a>
       </li>
       <?php
       $args = [
-        'taxonomy' => 'blog_category'
+        'taxonomy' => 'works_category'
       ];
       $terms = get_terms($args);
-      foreach ($terms as $term) {
-        echo '<li class="category__item">';
-        echo '<a href="' . get_term_link($term) . '">' . $term->name . '</a>';
-        echo '</li>';
-      }
+      foreach ($terms as $term) :
       ?>
+        <li class="category__item">
+          <a href=" <?php echo get_term_link($term); ?>" class="<?php if (is_object_in_term(get_the_ID(), 'works_category', $term->slug)) {
+                                                                  echo 'cat-current';
+                                                                } ?>">
+            <?php echo $term->name; ?>
+          </a>
+        </li>
+      <?php endforeach; ?>
     </ul>
   </div>
 </div>
@@ -53,7 +57,7 @@
         <?php endwhile; ?>
       <?php else :
         //記事が存在しなかった場合
-        echo '<div class="page-blog__row">';
+        echo '<div class="p-blog__row">';
         echo '<a href="/" style="pointer-events: none;">すみません。ただいま記事を準備中です。<br>少々お待ちください。</a>';
         echo '</div>';
       ?>

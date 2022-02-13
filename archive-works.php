@@ -26,17 +26,19 @@
   <div class="section-inner category__inner">
     <ul class="category__items">
       <li class="category__item">
-        <a class="is-active" href="">ALL</a>
+        <a href="<?php echo esc_url(home_url('/works')); ?>" <?php if (!is_front_page() && get_post_type() === 'blog') echo ' class="cat-current"'; ?>>ALL</a>
       </li>
-      <li class="category__item">
-        <a href="">カテゴリ１</a>
-      </li>
-      <li class="category__item">
-        <a href="">カテゴリカテゴリ</a>
-      </li>
-      <li class="category__item">
-        <a href="">カテ</a>
-      </li>
+      <?php
+      $args = [
+        'taxonomy' => 'works_category'
+      ];
+      $terms = get_terms($args);
+      foreach ($terms as $term) {
+        echo '<li class="category__item">';
+        echo '<a href="' . get_term_link($term) . '">' . $term->name . '</a>';
+        echo '</li>';
+      }
+      ?>
     </ul>
   </div>
 </div>
@@ -44,36 +46,37 @@
 
 <section class="page-works">
   <div class="page-works___contents">
-    <a href="#" class="page-works__content my-work">
-      <div class="my-work__category">カテゴリ１</div>
-      <img class="my-work__img" src="/images/page-works/woks-1-sp.jpg" alt="" />
-      <h3 class="my-work__title">CodeUps株式会社</h3>
-    </a>
-    <!-- /.page-works__content -->
-    <a href="#" class="page-works__content my-work">
-      <div class="my-work__category">カテゴリ１</div>
-      <img class="my-work__img" src="/images/page-works/woks-1-sp.jpg" alt="" />
-      <h3 class="my-work__title">CodeUps株式会社</h3>
-    </a>
-    <!-- /.page-works__content -->
-    <a href="#" class="page-works__content my-work">
-      <div class="my-work__category">カテゴリ１</div>
-      <img class="my-work__img" src="/images/page-works/woks-1-sp.jpg" alt="" />
-      <h3 class="my-work__title">CodeUps株式会社</h3>
-    </a>
-    <!-- /.page-works__content -->
-    <a href="#" class="page-works__content my-work">
-      <div class="my-work__category">カテゴリ１</div>
-      <img class="my-work__img" src="/images/page-works/woks-1-sp.jpg" alt="" />
-      <h3 class="my-work__title">CodeUps株式会社</h3>
-    </a>
-    <!-- /.page-works__content -->
-    <a href="#" class="page-works__content my-work">
-      <div class="my-work__category">カテゴリ１</div>
-      <img class="my-work__img" src="/images/page-works/woks-1-sp.jpg" alt="" />
-      <h3 class="my-work__title">CodeUps株式会社</h3>
-    </a>
-    <!-- /.page-works__content -->
+    <?php if (have_posts()) : ?>
+      <?php while (have_posts()) : the_post(); ?>
+        <a href="<?php the_permalink(); ?>" class="page-works__content my-work">
+          <figure class="my-work__img">
+            <?php if (has_post_thumbnail()) : ?>
+              <?php the_post_thumbnail('full'); ?>
+            <?php else : ?>
+              <img src="<?php echo esc_url(get_theme_file_uri('/images/noimage.jpg')); ?>" alt="NO-IMAGE">
+            <?php endif; ?>
+            <div class="my-work__category">
+              <?php
+              $terms = get_the_terms($post->ID, 'works_category');
+              foreach ($terms as $term) {
+                echo $term->name;
+              }
+              ?>
+            </div>
+          </figure>
+          <h3 class="my-work__title">
+            <?php the_title(); ?>
+          </h3>
+        </a>
+        <!-- /.page-works__content -->
+      <?php endwhile; ?>
+    <?php else :
+      //記事が存在しなかった場合
+      echo '<div class="page-works__row">';
+      echo '<a href="/" style="pointer-events: none;">すみません。ただいま記事を準備中です。<br>少々お待ちください。</a>';
+      echo '</div>';
+    ?>
+    <?php endif; ?>
   </div>
   <!-- /.page-works__contents -->
 </section>

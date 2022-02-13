@@ -45,9 +45,12 @@
             <div class="news-post__info">
               <time class="news-post__date" datetime="<?php the_time('Y.m.d'); ?>"><?php the_time('Y.m.d'); ?></time>
               <div class="news-post__category">
-                <?php $category = get_the_category();
-                $cat_name = $category[0]->cat_name;
-                echo $cat_name; ?>
+                <?php
+                $terms = get_the_terms($post->ID, 'category');
+                foreach ($terms as $term) {
+                  echo $term->name;
+                }
+                ?>
               </div>
             </div>
             <div class="news-post__text news-post__text--top">

@@ -40,9 +40,8 @@
   }
 }
 .news-post__date--page {
-  width: rem(109);
   @include mq(md) {
-    margin-right: rem(18);
+    margin-right: rem(35);
   }
 }
 
