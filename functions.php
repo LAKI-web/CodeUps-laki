@@ -94,7 +94,7 @@ add_action('pre_get_posts', 'change_set_blog_category');
 function change_excerpt_length()
 {
 	$length = 80;
-	if (is_post_type_archive('blog') || is_tax('blog_category')) {
+	if (is_front_page() || is_post_type_archive('blog') || is_tax('blog_category')) {
 		return 30; //リターンした時点で処理は終了する
 	}
 	return $length; //デフォルト110文字
@@ -107,7 +107,7 @@ add_filter('excerpt_length', 'change_excerpt_length', 999);
 * -------------------------------------------- */
 function change_excerpt_more()
 {
-	if (is_post_type_archive('blog') || is_tax('blog_category')) {
+	if (is_front_page() || is_post_type_archive('blog') || is_tax('blog_category')) {
 		return '...'; //リターンした時点で処理は終了する
 	}
 }
@@ -116,15 +116,15 @@ add_filter('excerpt_more', 'change_excerpt_more');
 /* --------------------------------------------
 * カスタム投稿タイプ【ブログ】：アーカイブページタイトルの長さ変更
 * -------------------------------------------- */
-function title_char_change($title)
-{
-	if (mb_strlen($title) > 20 && !(is_front_page())
-	&& !(is_single()) && !(is_home()) ) {
-		$title = mb_substr($title, 0, 20) . '...'; // 制限させる文字数と省略文字を指定
-	}
-	return $title;
-}
-add_filter('the_title', 'title_char_change');
+// function title_char_change($title)
+// {
+// 	if (mb_strlen($title) > 20 && !(is_front_page())
+// 	&& !(is_single()) && !(is_home()) ) {
+// 		$title = mb_substr($title, 0, 20) . '...'; // 制限させる文字数と省略文字を指定
+// 	}
+// 	return $title;
+// }
+// add_filter('the_title', 'title_char_change');
 
 /*-----------------------------------
 * 文字数制限用

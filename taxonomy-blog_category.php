@@ -13,13 +13,7 @@
 </section>
 <!-- /.common-mv -->
 
-<div class="breadcrumb" typeof="BreadcrumbList" vocab="https://schema.org/">
-  <div class="section-inner breadcrumb__inner">
-    <?php if (function_exists('bcn_display')) {
-      bcn_display();
-    } ?>
-  </div>
-</div>
+<?php get_template_part('template-parts/loop', 'breadcrumb'); ?>
 <!-- breadcrumb -->
 
 <div class="category">
@@ -53,7 +47,7 @@
     <div class="page-blog__items cards">
       <?php if (have_posts()) : ?>
         <?php while (have_posts()) : the_post(); ?>
-          <?php get_template_part('loop-card'); ?>
+          <?php get_template_part('template-parts/loop', 'card'); ?>
         <?php endwhile; ?>
       <?php else :
         //記事が存在しなかった場合
@@ -73,26 +67,7 @@
 <?php wp_pagenavi(); ?>
 <!-- /.pagenation -->
 
-<div class="l-margin--contact"></div>
-<section class="contact">
-  <div class="contact__inner section-inner">
-    <div class="contact__header section-header">
-      <h2 class="section-header__title section-header__title--contact">
-        お問い合わせ
-      </h2>
-      <div class="section-header__subtitle section-header__subtitle--contact">
-        contact
-      </div>
-    </div>
-    <p class="contact__text">
-      テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
-    </p>
-    <div class="contact__btn">
-      <a href="<?php echo esc_url(home_url('/contact')); ?>" class="button button--contact">お問い合わせへ</a>
-    </div>
-  </div>
-  <!-- /.contact__inner -->
-</section>
+<?php get_template_part('template-parts/loop', 'contact'); ?>
 <!-- /.contact -->
 
 <?php get_footer(); ?>

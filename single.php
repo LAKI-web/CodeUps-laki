@@ -2,13 +2,7 @@
 
 <div class="l-margin--header"></div>
 
-<div class="breadcrumb" typeof="BreadcrumbList" vocab="https://schema.org/">
-  <div class="section-inner breadcrumb__inner">
-    <?php if (function_exists('bcn_display')) {
-      bcn_display();
-    } ?>
-  </div>
-</div>
+<?php get_template_part('template-parts/loop', 'breadcrumb'); ?>
 <!-- breadcrumb -->
 
 <div class="l-margin--article"></div>
@@ -53,15 +47,11 @@
           </div>
         <?php endif; ?>
 
-        <!-- <a href="<?php echo esc_url(home_url('/news')); ?>">一覧</a> -->
-
         <?php if (is_singular('post')) : ?>
           <a href="<?php echo esc_url(home_url('/news')); ?>">一覧</a>
         <?php elseif (is_singular('blog')) : ?>
           <a href="<?php echo esc_url(home_url('/blog')); ?>">一覧</a>
         <?php endif; ?>
-
-
 
         <?php if (get_next_post_link()) : ?>
           <div class="article__links-next">
@@ -213,26 +203,7 @@
 </div>
 <!-- /.article-recommend -->
 
-<div class="l-margin--contact"></div>
-<section class="contact">
-  <div class="contact__inner section-inner">
-    <div class="contact__header section-header">
-      <h2 class="section-header__title section-header__title--contact">
-        お問い合わせ
-      </h2>
-      <div class="section-header__subtitle section-header__subtitle--contact">
-        contact
-      </div>
-    </div>
-    <p class="contact__text">
-      テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
-    </p>
-    <div class="contact__btn">
-      <a href="<?php echo esc_url(home_url('/contact')); ?>" class="button button--contact">お問い合わせへ</a>
-    </div>
-  </div>
-  <!-- /.contact__inner -->
-</section>
+<?php get_template_part('template-parts/loop', 'contact'); ?>
 <!-- /.contact -->
 
 <?php get_footer(); ?>
