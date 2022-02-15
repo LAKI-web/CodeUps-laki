@@ -25,7 +25,7 @@
                 <?php
                 $terms = get_the_terms($post->ID, 'blog_category');
                 foreach ($terms as $term) {
-                  echo '<a href="' . get_term_link($term) . '">' . $term->name . '</a>';
+                  echo '<a href="' . esc_url(get_term_link($term)) . '">' . $term->name . '</a>';
                 }
                 ?>
               </div>
@@ -106,7 +106,7 @@
               </figure>
               <div class="card__body">
                 <h3 class="card__title card__title--recommend">
-                  <?php echo text_restriction(get_the_title(), 20, '...'); ?>
+                  <?php echo esc_html(text_restriction(get_the_title(), 20, '...')); ?>
                 </h3>
                 <div class="card__info">
                   <div class="card__category tag">
@@ -168,7 +168,7 @@
               </figure>
               <div class="card__body">
                 <h3 class="card__title card__title--recommend">
-                  <?php echo text_restriction(get_the_title(), 20, '...'); ?>
+                  <?php echo esc_html(text_restriction(get_the_title(), 20, '...')); ?>
                 </h3>
                 <div class="card__info">
                   <div class="card__category tag">

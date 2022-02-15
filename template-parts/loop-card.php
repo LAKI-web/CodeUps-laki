@@ -8,7 +8,7 @@
   </figure>
   <div class="card__body">
     <h3 class="card__title">
-      <?php echo text_restriction(get_the_title(), 20, '...'); ?>
+      <?php echo esc_html(text_restriction(get_the_title(), 20, '...')); ?>
     </h3>
     <div class="card__text">
       <?php the_excerpt(); ?>
