@@ -132,22 +132,22 @@
 
 .article__links {
   display: flex;
-  width: rem(310);
-  margin: rem(80) auto 0;
+  justify-content: center;
+  align-items: center;
+  margin-top: rem(80);
   @include mq(md) {
     margin-top: rem(104);
   }
 }
 
 .article__links a {
-  display: block;
+  display: inline-block;
   width: rem(71);
   color: $white;
   background-color: $black;
   border: 1px solid $white;
   line-height: 1;
   padding: rem(3) rem(18.5);
-  margin: 0 rem(24);
   transition: 0.2s ease-in-out;
   text-align: center;
   white-space: nowrap;
@@ -160,4 +160,8 @@
 .article__links-prev a,
 .article__links-next a {
   padding: rem(3) rem(14);
+}
+.article__links-list a {
+  margin-left: rem(48);
+  margin-right: rem(48);
 }

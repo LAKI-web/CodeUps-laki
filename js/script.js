@@ -91,7 +91,7 @@ jQuery(function ($) {
     slidesPerView: 1,
     centeredSlides: true,
     loop: true,
-    loopedSlides: 3, //スライドの枚数と同じ値を指定
+    loopedSlides: 6, //スライドの枚数と同じ値を指定
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",

@@ -40,27 +40,28 @@
         <!-- /.article__inner -->
       </div>
 
-      <div class="article__links">
-        <?php if (get_previous_post_link()) : ?>
-          <div class="article__links-prev">
-            <?php previous_post_link('%link', 'PREV'); ?>
+      <div class="section-inner">
+        <div class="article__links">
+          <?php if (get_previous_post_link()) : ?>
+            <div class="article__links-prev">
+              <?php previous_post_link('%link', 'PREV'); ?>
+            </div>
+          <?php endif; ?>
+          <div class="article__links-list">
+            <?php if (is_singular('post')) : ?>
+              <a href="<?php echo esc_url(home_url('/news')); ?>">一覧</a>
+            <?php elseif (is_singular('blog')) : ?>
+              <a href="<?php echo esc_url(home_url('/blog')); ?>">一覧</a>
+            <?php endif; ?>
           </div>
-        <?php endif; ?>
-
-        <?php if (is_singular('post')) : ?>
-          <a href="<?php echo esc_url(home_url('/news')); ?>">一覧</a>
-        <?php elseif (is_singular('blog')) : ?>
-          <a href="<?php echo esc_url(home_url('/blog')); ?>">一覧</a>
-        <?php endif; ?>
-
-        <?php if (get_next_post_link()) : ?>
-          <div class="article__links-next">
-            <?php next_post_link('%link', 'NEXT'); ?>
-          </div>
-        <?php endif; ?>
+          <?php if (get_next_post_link()) : ?>
+            <div class="article__links-next">
+              <?php next_post_link('%link', 'NEXT'); ?>
+            </div>
+          <?php endif; ?>
+        </div>
+        <!-- /.article__links -->
       </div>
-      <!-- /.article__links -->
-
     <?php endwhile; ?>
   <?php endif; ?>
 </article>

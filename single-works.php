@@ -9,7 +9,7 @@
 <article class="works-article">
 
   <div class="section-inner">
-    <h1 class="works-article__title">〇〇株式会社　制作実績</h1>
+    <h1 class="works-article__title"><?php the_title(); ?></h1>
 
     <div class="works-article__info article-meta">
       <time datetime="<?php the_time('Y/m/d'); ?>" class="article-meta__date"><?php the_time('Y/m/d'); ?></time>
@@ -28,16 +28,15 @@
     <div class="swiper gallery__slider">
       <!-- メイン -->
       <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <img src="<?php echo esc_url(get_theme_file_uri('/images/MV/MV.jpg')); ?>" alt="">
-        </div>
-        <div class="swiper-slide">
-          <img src="<?php echo esc_url(get_theme_file_uri('/images/MV/MV2.jpg')); ?>" alt="">
-        </div>
-        <div class="swiper-slide">
-          <img src="<?php echo esc_url(get_theme_file_uri('/images/MV/MV3.jpg')); ?>" alt="">
-        </div>
-
+        <?php
+        $repeat_group = SCF::get('works_img_group');
+        foreach ($repeat_group as $fields) { ?>
+          <div class="swiper-slide">
+            <?php
+            $image = get_post_meta($post->ID, 'works_img', true);
+            echo wp_get_attachment_image($fields['works_img'], 'full');; ?>
+          </div>
+        <?php }; ?>
       </div>
       <div class="swiper-button-prev"></div>
       <div class="swiper-button-next"></div>
@@ -45,9 +44,15 @@
     <!-- サムネイル -->
     <div class="swiper gallery__thumbs">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="<?php echo esc_url(get_theme_file_uri('/images/MV/MV.jpg')); ?>" alt=""></div>
-        <div class="swiper-slide"><img src="<?php echo esc_url(get_theme_file_uri('/images/MV/MV2.jpg')); ?>" alt=""></div>
-        <div class="swiper-slide"><img src="<?php echo esc_url(get_theme_file_uri('/images/MV/MV3.jpg')); ?>" alt=""></div>
+        <?php
+        $repeat_group = SCF::get('works_img_group');
+        foreach ($repeat_group as $fields) { ?>
+          <div class="swiper-slide">
+            <?php
+            $image = get_post_meta($post->ID, 'works_img', true);
+            echo wp_get_attachment_image($fields['works_img'], 'full');; ?>
+          </div>
+        <?php }; ?>
       </div>
     </div>
   </div>
@@ -58,17 +63,23 @@
       <ul class="works-article__list points">
         <li class="points__item point">
           <h3 class="point__title">制作のポイント</h3>
-          <div class="point__text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</div>
+          <p class="point__text">
+            <?php echo esc_html(get_field('point1')); ?>
+          </p>
         </li>
         <!-- /.point-item -->
         <li class="points__item point">
           <h3 class="point__title">デザインのポイント</h3>
-          <div class="point__text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</div>
+          <p class="point__text">
+            <?php echo esc_html(get_field('point2')); ?>
+          </p>
         </li>
         <!-- /.point-item -->
         <li class="points__item point">
           <h3 class="point__title">その他</h3>
-          <div class="point__text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</div>
+          <p class="point__text">
+            <?php echo esc_html(get_field('other')); ?>
+          </p>
         </li>
         <!-- /.point-item -->
       </ul>
@@ -78,24 +89,26 @@
   </div>
   <!-- /.works-article__point -->
 
-
-
-  <div class="article__links">
-    <?php if (get_previous_post_link()) : ?>
-      <div class="article__links-prev">
-        <?php previous_post_link('%link', 'PREV'); ?>
+  <div class="section-inner">
+    <div class="article__links">
+      <?php if (get_previous_post_link()) : ?>
+        <div class="article__links-prev">
+          <?php previous_post_link('%link', 'PREV'); ?>
+        </div>
+      <?php endif; ?>
+      <div class="article__links-list">
+        <a href="<?php echo esc_url(home_url('/works')); ?>">一覧</a>
       </div>
-    <?php endif; ?>
-
-    <a href="<?php echo esc_url(home_url('/works')); ?>">一覧</a>
-
-    <?php if (get_next_post_link()) : ?>
-      <div class="article__links-next">
-        <?php next_post_link('%link', 'NEXT'); ?>
-      </div>
-    <?php endif; ?>
+      <?php if (get_next_post_link()) : ?>
+        <div class="article__links-next">
+          <?php next_post_link('%link', 'NEXT'); ?>
+        </div>
+      <?php endif; ?>
+    </div>
+    <!-- /.article__links -->
   </div>
-  <!-- /.article__links -->
+
+
 
 
 </article>

@@ -55,6 +55,21 @@ function my_deregister_styles()
 }
 add_action('wp_print_styles', 'my_deregister_styles', 100);
 
+/* --------------------------------------------
+* カスタム投稿タイプ【ブログ】：メインクエリの変更（ブログのアーカイブページにて表示件数を9件にする）
+* -------------------------------------------- */
+
+function change_set_works($query)
+{
+	if (is_admin() || !$query->is_main_query()) {
+		return;
+	}
+	if ($query->is_post_type_archive('works')) {
+		$query->set('posts_per_page', '6');
+		return;
+	}
+}
+add_action('pre_get_posts', 'change_set_works');
 
 /* --------------------------------------------
 * カスタム投稿タイプ【ブログ】：メインクエリの変更（ブログのアーカイブページにて表示件数を9件にする）
