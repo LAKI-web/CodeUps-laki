@@ -43,7 +43,7 @@
         <ul class="sp-header-nav__items">
           <li class="sp-header-nav__item"><a href="<?php echo esc_url(home_url('/')); ?>">トップ</a></li>
           <li class="sp-header-nav__item"><a href="<?php echo esc_url(home_url('/news')); ?>">お知らせ</a></li>
-          <li class="sp-header-nav__item"><a href="<?php echo esc_url(home_url('/ content')); ?>">事業内容</a></li>
+          <li class="sp-header-nav__item"><a href="<?php echo esc_url(home_url('/content')); ?>">事業内容</a></li>
           <li class="sp-header-nav__item"><a href="<?php echo esc_url(home_url('/works')); ?>">制作実績</a></li>
           <li class="sp-header-nav__item"><a href="<?php echo esc_url(home_url('/overview')); ?>">企業概要</a></li>
           <li class="sp-header-nav__item"><a href="<?php echo esc_url(home_url('/blog')); ?>">ブログ</a></li>

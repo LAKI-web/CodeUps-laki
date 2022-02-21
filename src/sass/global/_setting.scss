@@ -17,7 +17,7 @@ $padding-sp: 20px;
 ////////////////////
 
 $base-font-family: "Noto Sans JP", sans-serif;
-$second-font-family: "Noto Serif JP", sans-serif;
+$second-font-family: "Noto Serif JP", serif;
 // ※検証ツールでしっかり反映されているか確認する
 
 body {
@@ -81,7 +81,6 @@ $mediaquerys: (
 @mixin l_spacing($pixels, $spacing) {
   letter-spacing: math.div($spacing, $pixels) + em;
 }
-
 
 // remへの計算式（16pxを基準としている。10pxを基準とする場合は16を10に変更する）
 @function rem($pixels) {

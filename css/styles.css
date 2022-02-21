@@ -856,6 +856,8 @@ select::-ms-expand {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
 }
 
 .common-mv__title {
@@ -1952,7 +1954,7 @@ select::-ms-expand {
   text-transform: capitalize;
   color: #f9f871;
   opacity: 0.2;
-  font-family: "Noto Serif JP", sans-serif;
+  font-family: "Noto Serif JP", serif;
   line-height: 1.44;
 }
 @media screen and (min-width: 768px) {
