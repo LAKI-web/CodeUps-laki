@@ -1,0 +1,36 @@
+@use "global" as *;
+
+.works-article {
+}
+
+.works-article__info {
+  margin-top: rem(16);
+  @include mq(md) {
+    margin-top: rem(32);
+  }
+}
+
+.works-article__gallery {
+  width: 100%;
+  max-width: rem(800);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: rem(16);
+  @include mq(md) {
+    margin-top: rem(32);
+  }
+}
+
+.works-article__point {
+  margin-top: rem(54);
+  @include mq(md) {
+    margin-top: rem(103);
+  }
+}
+.works-article__point-wrapper {
+  @include mq(md) {
+    max-width: rem(850);
+  }
+}
+.works-article__list {
+}

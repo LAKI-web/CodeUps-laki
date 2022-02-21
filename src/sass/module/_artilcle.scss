@@ -1,8 +1,5 @@
 @use "global" as *;
 
-.article {
-}
-
 .article__inner {
   width: 100%;
   padding-right: $padding-sp;
@@ -155,7 +152,7 @@
   text-align: center;
   white-space: nowrap;
 }
-.article__links a:hover{
+.article__links a:hover {
   color: $black;
   background-color: $white;
 }

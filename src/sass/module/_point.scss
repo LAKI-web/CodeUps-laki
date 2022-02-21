@@ -1,0 +1,27 @@
+@use "global" as *;
+
+.point{
+  position: relative;
+  border: 1px solid $white;
+  padding: rem(56) rem(10) rem(33);
+}
+
+.point__title{
+  font-size: rem(20);
+  line-height: 1;
+  @include l_spacing(20,0.4);
+  background-color: $black;
+  border: 1px solid $white;
+  border-radius: rem(50);
+  padding: rem(10) rem(24);
+  position: absolute;
+  top: rem(-23);
+  left: rem(24);
+
+}
+
+.point__text{
+  font-size: rem(16);
+  @include l_height(16,35);
+  @include l_spacing(16,0.4);
+}

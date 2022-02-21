@@ -6,53 +6,98 @@
 <!-- breadcrumb -->
 
 <div class="l-margin--article"></div>
-<article class="article">
-  <?php if (have_posts()) : ?>
-    <?php while (have_posts()) : the_post(); ?>
-      <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-        <div class="article__inner">
-          <h1 class="article__title">
-            <?php the_title(); ?>
-          </h1>
-          <div class="article__info article-meta">
-            <time datetime="<?php the_time('Y/m/d'); ?>" class="article-meta__date"><?php the_time('Y/m/d'); ?></time>
-            <div class="article-meta__category">
-              <?php
-              $terms = get_the_terms($post->ID, 'works_category');
-              foreach ($terms as $term) {
-                echo '<a href="' . esc_url(get_term_link($term)) . '">' . $term->name . '</a>';
-              }
-              ?>
-            </div>
-          </div>
-          <!-- /.article__info -->
-          <div class="article__content">
-            <?php the_content(); ?>
-          </div>
-          <!-- /.article__content -->
+<article class="works-article">
+
+  <div class="section-inner">
+    <h1 class="works-article__title">〇〇株式会社　制作実績</h1>
+
+    <div class="works-article__info article-meta">
+      <time datetime="<?php the_time('Y/m/d'); ?>" class="article-meta__date"><?php the_time('Y/m/d'); ?></time>
+      <div class="article-meta__category">
+        <?php
+        $terms = get_the_terms($post->ID, 'works_category');
+        foreach ($terms as $term) {
+          echo '<a href="' . esc_url(get_term_link($term)) . '">' . $term->name . '</a>';
+        }
+        ?>
+      </div>
+    </div>
+  </div>
+
+  <div class="works-article__gallery gallery">
+    <div class="swiper gallery__slider">
+      <!-- メイン -->
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="<?php echo esc_url(get_theme_file_uri('/images/MV/MV.jpg')); ?>" alt="">
         </div>
-        <!-- /.article__inner -->
+        <div class="swiper-slide">
+          <img src="<?php echo esc_url(get_theme_file_uri('/images/MV/MV2.jpg')); ?>" alt="">
+        </div>
+        <div class="swiper-slide">
+          <img src="<?php echo esc_url(get_theme_file_uri('/images/MV/MV3.jpg')); ?>" alt="">
+        </div>
+
       </div>
-
-      <div class="article__links">
-        <?php if (get_previous_post_link()) : ?>
-          <div class="article__links-prev">
-            <?php previous_post_link('%link', 'PREV'); ?>
-          </div>
-        <?php endif; ?>
-
-        <a href="<?php echo esc_url(home_url('/works')); ?>">一覧</a>
-
-        <?php if (get_next_post_link()) : ?>
-          <div class="article__links-next">
-            <?php next_post_link('%link', 'NEXT'); ?>
-          </div>
-        <?php endif; ?>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+    <!-- サムネイル -->
+    <div class="swiper gallery__thumbs">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="<?php echo esc_url(get_theme_file_uri('/images/MV/MV.jpg')); ?>" alt=""></div>
+        <div class="swiper-slide"><img src="<?php echo esc_url(get_theme_file_uri('/images/MV/MV2.jpg')); ?>" alt=""></div>
+        <div class="swiper-slide"><img src="<?php echo esc_url(get_theme_file_uri('/images/MV/MV3.jpg')); ?>" alt=""></div>
       </div>
-      <!-- /.article__links -->
+    </div>
+  </div>
+  <!-- /.article__gallery -->
 
-    <?php endwhile; ?>
-  <?php endif; ?>
+  <div class="works-article__point">
+    <div class="works-article__point-wrapper section-inner">
+      <ul class="works-article__list points">
+        <li class="points__item point">
+          <h3 class="point__title">制作のポイント</h3>
+          <div class="point__text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</div>
+        </li>
+        <!-- /.point-item -->
+        <li class="points__item point">
+          <h3 class="point__title">デザインのポイント</h3>
+          <div class="point__text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</div>
+        </li>
+        <!-- /.point-item -->
+        <li class="points__item point">
+          <h3 class="point__title">その他</h3>
+          <div class="point__text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</div>
+        </li>
+        <!-- /.point-item -->
+      </ul>
+      <!-- /.point-items -->
+    </div>
+    <!-- /.section-inner -->
+  </div>
+  <!-- /.works-article__point -->
+
+
+
+  <div class="article__links">
+    <?php if (get_previous_post_link()) : ?>
+      <div class="article__links-prev">
+        <?php previous_post_link('%link', 'PREV'); ?>
+      </div>
+    <?php endif; ?>
+
+    <a href="<?php echo esc_url(home_url('/works')); ?>">一覧</a>
+
+    <?php if (get_next_post_link()) : ?>
+      <div class="article__links-next">
+        <?php next_post_link('%link', 'NEXT'); ?>
+      </div>
+    <?php endif; ?>
+  </div>
+  <!-- /.article__links -->
+
+
 </article>
 <!-- /.article -->
 

@@ -1,0 +1,12 @@
+@use "global" as *;
+
+.points{
+
+}
+
+.points__item{
+  margin-top: rem(54);
+  @include mq(md) {
+    margin-top: rem(71);
+  }
+}

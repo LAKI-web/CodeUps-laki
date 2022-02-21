@@ -1,4 +1,3 @@
-
 jQuery(function ($) {
   // この中であればWordpressでも「$」が使用可能になる
 
@@ -57,14 +56,12 @@ jQuery(function ($) {
     }
   });
 
-  
-  //Swiper
-  var worksSwiper = new Swiper(".swiper2", {
+  //top-worksのSwiper
+  var top_worksSwiper = new Swiper(".swiper--top-works", {
     autoplay: {
       delay: 2000,
     },
-    loop: true,
-    //最後に達したら先頭に戻る
+    loop: true, //最後に達したら先頭に戻る
     //ページネーション表示の設定
     pagination: {
       el: ".swiper-pagination",
@@ -74,6 +71,8 @@ jQuery(function ($) {
       clickable: true, //クリックに反応させる
     },
   });
+
+  //メインビューのSwiper
   var mvSwiper = new Swiper(".swiper--mv", {
     loop: true,
     //最後に達したら先頭に戻る
@@ -84,4 +83,35 @@ jQuery(function ($) {
     },
     speed: 2000,
   });
+
+  //worksのSwiperメイン
+
+  //メイン
+  var slider = new Swiper(".gallery__slider", {
+    slidesPerView: 1,
+    centeredSlides: true,
+    loop: true,
+    loopedSlides: 3, //スライドの枚数と同じ値を指定
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    autoplay: {
+      delay: 4000,
+    },
+  });
+
+  //サムネイル
+  var thumbs = new Swiper(".gallery__thumbs", {
+    slidesPerView: "auto",
+    spaceBetween: 24,
+    centeredSlides: true,
+    loop: true,
+    slideToClickedSlide: true,
+  });
+
+  //4系～
+  //メインとサムネイルを紐づける
+  slider.controller.control = thumbs;
+  thumbs.controller.control = slider;
 });

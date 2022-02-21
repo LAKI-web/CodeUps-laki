@@ -131,7 +131,7 @@
   <div class="works__wrapper">
     <div class="works__contents section-inner">
       <div class="works__container">
-        <div class="swiper swiper2">
+        <div class="swiper swiper--top-works">
           <div class="swiper-wrapper">
             <div class="swiper-slide works__slide">
               <img src="<?php echo esc_url(get_theme_file_uri('/images/Woks/works1.jpg')); ?>" alt="" />
