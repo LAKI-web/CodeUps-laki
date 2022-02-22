@@ -7,14 +7,22 @@
   }
 }
 
-.contact-form__item{
+.contact-form__inner {
+  width: 100%;
+  padding-right: $padding-sp;
+  padding-left: $padding-sp;
+  margin-right: auto;
+  margin-left: auto;
+  @include mq("md") {
+    max-width: 696px + strip-unit($padding-pc) * 2;
+    padding-right: $padding-pc;
+    padding-left: $padding-pc;
+  }
+}
+
+.contact-form__item {
   @include mq(md) {
-    width: 100%;
-    max-width: rem(696);
-    margin-left: auto;
-    margin-right: auto;
     display: flex;
-    align-items: baseline;
   }
 }
 .contact-form__item + .contact-form__item {
@@ -24,69 +32,7 @@
   }
 }
 
-.contact-form__item-label{
-  font-size: rem(14);
-  line-height: 1;
-  @include l_spacing(14,0.7);
-  @include mq(md) {
-    width: 100%;
-    max-width: rem(140);
-    text-align: right;
-  }
-}
-
-.contact-form__text {
-  appearance: none;
-  background-color: $white;
-  background-image: none;
-  border: 1px solid $black;
-  border-radius: 0;
-  color: inherit;
-  font-family: inherit;
-  font-size: rem(16);
-  padding: rem(10);
-  width: 100%;
-  margin-top: rem(16);
-  @include mq(md) {
-    max-width: rem(540);
-    margin-top: 0;
-    margin-left: rem(24);
-  }
-}
-
-.contact-form__text:focus {
-  border: 1px solid $black;
-  box-shadow: none;
-  outline: none;
-}
-
-.contact-form__textarea {
-  appearance: none;
-  background-color: $white;
-  background-image: none;
-  border: 1px solid $black;
-  border-radius: 0;
-  color: inherit;
-  font-family: inherit;
-  font-size: rem(16);
-  height: rem(250);
-  padding: rem(16) rem(7);
-  width: 100%;
-  margin-top: rem(16);
-  @include mq(md) {
-    max-width: rem(540);
-    margin-left: rem(24);
-    margin-top: 0;
-  }
-}
-
-.contact-form__textarea:focus {
-  border: 1px solid $black;
-  box-shadow: none;
-  outline: none;
-}
-
-.contact-form__submit {
+.contact-form__submit [type="submit"] {
   font-size: rem(20);
   background-color: $white;
   color: $text;
@@ -103,17 +49,17 @@
   }
 }
 
-.contact-form__submit:hover,
-.contact-form__submit:focus {
+.contact-form__submit [type="submit"]:hover,
+.contact-form__submit [type="submit"]:focus {
   outline: none;
 }
 
-.contact-form__submit::-moz-foucus-inner {
+.contact-form__submit [type="submit"]::-moz-focus-inner {
   border: none;
   padding: 0;
 }
 
-.contact-form__submit-btn {
+.contact-form__submit {
   text-align: center;
   margin-top: rem(48);
   @include mq(md) {
