@@ -1,0 +1,31 @@
+@use "global" as *;
+
+.page-thanks {
+  text-align: center;
+}
+
+.page-thanks__inner {
+  padding-bottom: rem(120);
+  @include mq(md) {
+    padding-bottom: rem(150);
+  }
+}
+
+.page-thanks__title,
+.page-thanks__text {
+  font-size: rem(20);
+  @include l_spacing(20, 2);
+  @include mq(md) {
+    font-size: rem(30);
+    line-height: 1;
+    @include l_spacing(30, 2);
+  }
+}
+
+.page-thanks__text {
+  margin-top: rem(80);
+}
+
+.page-thanks__btn {
+  margin-top: rem(80);
+}

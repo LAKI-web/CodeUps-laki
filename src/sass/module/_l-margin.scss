@@ -72,3 +72,10 @@
 .l-margin--header{
   margin-top: rem(50);
 }
+
+.l-margin--thanks{
+  margin-top: rem(130);
+  @include mq(md) {
+    margin-top: rem(200);
+  }
+}

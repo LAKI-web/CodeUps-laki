@@ -145,16 +145,17 @@ add_filter('excerpt_more', 'change_excerpt_more');
 /*-----------------------------------
 * 文字数制限用
 -----------------------------------*/
-function text_restriction( $text, $count, $change ) {
+function text_restriction($text, $count, $change)
+{
 	//取得したテキストのショートコードやhtmlを削除
-  $get_txt = strip_tags(strip_shortcodes($text));
-  //文字が指定数を超えているか判別
-  if( mb_strlen( $get_txt, 'UTF-8' ) > $count ){
-		$rtxt = mb_substr( $get_txt, 0, $count, 'UTF-8' ) . $change;
-    return $rtxt;
-  } else {
+	$get_txt = strip_tags(strip_shortcodes($text));
+	//文字が指定数を超えているか判別
+	if (mb_strlen($get_txt, 'UTF-8') > $count) {
+		$rtxt = mb_substr($get_txt, 0, $count, 'UTF-8') . $change;
+		return $rtxt;
+	} else {
 		return $get_txt;
-  }
+	}
 }
 
 /* --------------------------------------------
@@ -168,3 +169,28 @@ function auto_post_slug($slug, $post_ID, $post_status, $post_type)
 	return $slug;
 }
 add_filter('wp_unique_post_slug', 'auto_post_slug', 10, 4);
+
+
+/* --------------------------------------------
+* お問い合わせ完了ページへ
+* -------------------------------------------- */
+//お問い合わせと送信完了（固定ページ）のスラッグをセットする
+$contact = 'contact';
+$thanks = 'thanks';
+
+//お問い合わせフォームの送信後にサンクスページへ飛ばす
+add_action('wp_footer', 'redirect_thanks_page');
+function redirect_thanks_page()
+{
+	global $contact;
+	global $thanks;
+
+	if (is_page($contact)) {
+?>
+		<script>
+			document.addEventListener('wpcf7mailsent', function(event) {
+				location = '<?php echo home_url('/' . $thanks); ?>'; // 遷移先のURL
+			}, false);
+		</script>
+<?php }
+}
