@@ -178,7 +178,7 @@ add_filter('wp_unique_post_slug', 'auto_post_slug', 10, 4);
 $contact = 'contact';
 $thanks = 'thanks';
 
-//お問い合わせフォームの送信後にサンクスページへ飛ばす
+//お問い合わせフォームの送信後に完了ページへ飛ばす
 add_action('wp_footer', 'redirect_thanks_page');
 function redirect_thanks_page()
 {
@@ -194,3 +194,4 @@ function redirect_thanks_page()
 		</script>
 <?php }
 }
+

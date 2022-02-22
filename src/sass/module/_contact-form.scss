@@ -66,3 +66,17 @@
     margin-top: rem(56);
   }
 }
+
+.wpcf7 form .wpcf7-response-output {
+  width: rem(300);
+  margin: 0 auto rem(30);
+  border: none;
+  color: #ff5757;
+  @include l_spacing(16, 2);
+}
+.wpcf7-not-valid-tip {
+  display: none;
+}
+.wpcf7-not-valid {
+  background-color: #ffdcdc;
+}

@@ -47,7 +47,7 @@ jQuery(function ($) {
   });
 
   //ヘッダー途中から色変更
-  var elemTop = $(".mv,.common-mv").outerHeight();
+  var elemTop = $(".mv,.common-mv,.breadcrumb__inner").outerHeight();
   $(window).on("scroll", function () {
     if (elemTop < $(this).scrollTop()) {
       $(".header__inner").addClass("header__inner--color");
