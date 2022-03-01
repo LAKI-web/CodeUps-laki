@@ -2115,31 +2115,37 @@ textarea {
 }
 
 .swiper-pagination-bullet {
-  background: #f9f871;
+  background: #c4c4c4 !important;
+  opacity: 1 !important;
+}
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background: #f9f871 !important;
+  opacity: 1 !important;
 }
 
 .swiper-horizontal > .swiper-pagination-bullets,
 .swiper-pagination-bullets.swiper-pagination-horizontal,
 .swiper-pagination-custom,
 .swiper-pagination-fraction {
-  bottom: -21px;
-  bottom: -1.3125rem;
-  left: -2px;
-  left: -0.125rem;
+  bottom: -21px !important;
+  bottom: -1.3125rem !important;
+  left: -2px !important;
+  left: -0.125rem !important;
 }
 @media screen and (min-width: 768px) {
   .swiper-horizontal > .swiper-pagination-bullets,
 .swiper-pagination-bullets.swiper-pagination-horizontal,
 .swiper-pagination-custom,
 .swiper-pagination-fraction {
-    bottom: -1.875rem;
-    left: -1.3125rem;
+    bottom: -1.875rem !important;
+    left: -1.3125rem !important;
   }
 }
 
 .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
 .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
-  margin: 0 6px;
+  margin: 0 6px !important;
 }
 
 .gallery__slider {
@@ -2219,6 +2225,48 @@ textarea {
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
+}
+
+.gallery__slider .swiper-button-prev {
+  left: 7px;
+}
+@media screen and (min-width: 768px) {
+  .gallery__slider .swiper-button-prev {
+    left: 17px;
+  }
+}
+
+.gallery__slider .swiper-button-prev::after {
+  content: url(../images/prevbtn.png);
+  -webkit-transform: scale(0.6);
+          transform: scale(0.6);
+}
+@media screen and (min-width: 768px) {
+  .gallery__slider .swiper-button-prev::after {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+.gallery__slider .swiper-button-next {
+  right: 7px;
+}
+@media screen and (min-width: 768px) {
+  .gallery__slider .swiper-button-next {
+    right: 17px;
+  }
+}
+
+.gallery__slider .swiper-button-next::after {
+  content: url(../images/nextbtn.png);
+  -webkit-transform: scale(0.6);
+          transform: scale(0.6);
+}
+@media screen and (min-width: 768px) {
+  .gallery__slider .swiper-button-next::after {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
 }
 
 .tag__items {
@@ -2402,8 +2450,8 @@ textarea {
 }
 
 .page-content__content + .page-content__content {
-  margin-top: 48px;
-  margin-top: 3rem;
+  margin-top: 24px;
+  margin-top: 1.5rem;
 }
 @media screen and (min-width: 768px) {
   .page-content__content + .page-content__content {

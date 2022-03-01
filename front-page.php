@@ -131,20 +131,32 @@
   <div class="works__wrapper">
     <div class="works__contents section-inner">
       <div class="works__container">
-        <div class="swiper swiper--top-works">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide works__slide">
-              <img src="<?php echo esc_url(get_theme_file_uri('/images/Woks/works1.jpg')); ?>" alt="" />
+
+        <?php
+        $args = [
+          'post_type' => 'works',
+          'posts_per_page' => '3'
+        ];
+        $the_query = new WP_Query($args);
+        ?>
+        <?php if ($the_query->have_posts()) : ?>
+          <div class="swiper swiper--top-works">
+            <div class="swiper-wrapper">
+            <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                <div class="swiper-slide works__slide">
+
+                  <a href="<?php the_permalink(); ?>">
+                    <?php the_post_thumbnail('full'); ?></a>
+                  <a href="<?php the_permalink(); ?>">
+                  </a>
+
+                </div>
+                <?php endwhile; ?>
+                <?php wp_reset_postdata(); ?>
+              </div>
             </div>
-            <div class="swiper-slide works__slide">
-              <img src="<?php echo esc_url(get_theme_file_uri('/images/Woks/works2.jpg')); ?>" alt="" />
-            </div>
-            <div class="swiper-slide works__slide">
-              <img src="<?php echo esc_url(get_theme_file_uri('/images/Woks/works3.jpg')); ?>" alt="" />
-            </div>
-          </div>
-        </div>
-        <div class="swiper-pagination"></div>
+            <?php endif; ?>
+          <div class="swiper-pagination"></div>
       </div>
       <!-- /.works__container -->
       <div class="works__body section-body">

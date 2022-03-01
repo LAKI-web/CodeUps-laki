@@ -27,7 +27,7 @@
     </div>
   </div>
   <div class="page-content__contents">
-    <div class="page-content__content">
+    <div id="philosophy1" class="page-content__content">
       <div class="page-content__img">
         <picture>
           <source srcset="<?php echo esc_url(get_theme_file_uri('/images/page-content/content-1-pc.jpg')); ?>" media="(min-width: 768px)" />
@@ -42,7 +42,7 @@
       </div>
     </div>
     <!-- /.page-content__content -->
-    <div class="page-content__content">
+    <div id="philosophy2" class="page-content__content">
       <div class="page-content__img">
         <picture>
           <source srcset="<?php echo esc_url(get_theme_file_uri('/images/page-content/content-2-pc.jpg')); ?>" media="(min-width: 768px)" />
@@ -57,7 +57,7 @@
       </div>
     </div>
     <!-- /.page-content__content -->
-    <div class="page-content__content">
+    <div id="philosophy3" class="page-content__content">
       <div class="page-content__img">
         <picture>
           <source srcset="<?php echo esc_url(get_theme_file_uri('/images/page-content/content-3-pc.jpg')); ?>" media="(min-width: 768px)" />

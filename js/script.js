@@ -37,7 +37,7 @@ jQuery(function ($) {
 
   // スムーススクロール (絶対パスのリンク先が現在のページであった場合でも作動)
   $(document).on("click", 'a[href*="#"]', function () {
-    let time = 400;
+    let time = 300;
     let header = $("header").innerHeight();
     let target = $(this.hash);
     if (!target.length) return;
@@ -59,8 +59,9 @@ jQuery(function ($) {
   //top-worksのSwiper
   var top_worksSwiper = new Swiper(".swiper--top-works", {
     autoplay: {
-      delay: 2000,
+      delay: 4000,
     },
+    speed: 2000,
     loop: true, //最後に達したら先頭に戻る
     //ページネーション表示の設定
     pagination: {
@@ -99,6 +100,7 @@ jQuery(function ($) {
     autoplay: {
       delay: 4000,
     },
+    speed:2000,
   });
 
   //サムネイル
@@ -114,4 +116,34 @@ jQuery(function ($) {
   //メインとサムネイルを紐づける
   slider.controller.control = thumbs;
   thumbs.controller.control = slider;
+
+  //固定ヘッダー時のリンク位置調整
+  //ページ内リンク
+  var headerHight = 80; //ヘッダの高さ
+  $("a[href^=#]").click(function () {
+    var href = $(this).attr("href");
+    var target = $(href == "#" || href == "" ? "html" : href);
+    var position = target.offset().top - headerHight; //ヘッダの高さ分位置をずらす
+    $("html, body").animate({ scrollTop: position }, 550, "swing");
+    return false;
+  });
+
+  //別ページリンク
+  $(window).on("load", function () {
+    // ページのURLを取得
+    const url = $(location).attr("href"),
+      // headerの高さを取得してそれに30px追加した値をheaderHeightに代入
+      headerHeight = $("header").outerHeight() + 80;
+    // urlに「#」が含まれていれば
+    if (url.indexOf("#") != -1) {
+      // urlを#で分割して配列に格納
+      const anchor = url.split("#"),
+        // 分割した最後の文字列（#◯◯の部分）をtargetに代入
+        target = $("#" + anchor[anchor.length - 1]),
+        // リンク先の位置からheaderHeightの高さを引いた値をpositionに代入
+        position = Math.floor(target.offset().top) - headerHeight;
+      // positionの位置に移動
+      $("html, body").animate({ scrollTop: position }, 100);
+    }
+  });
 });

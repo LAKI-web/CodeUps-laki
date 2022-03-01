@@ -39,25 +39,30 @@
 }
 
 .swiper-pagination-bullet {
-  background: $accent;
+  background: #c4c4c4 !important;
+  opacity: 1 !important;
+}
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background: $accent !important;
+  opacity: 1 !important;
 }
 
 .swiper-horizontal > .swiper-pagination-bullets,
 .swiper-pagination-bullets.swiper-pagination-horizontal,
 .swiper-pagination-custom,
 .swiper-pagination-fraction {
-  bottom: rem(-21);
-  left: rem(-2);
+  bottom: rem(-21) !important;
+  left: rem(-2) !important;
   @include mq(md) {
-    bottom: rem(-30);
-    left: rem(-21);
+    bottom: rem(-30) !important;
+    left: rem(-21) !important;
   }
 }
 
 .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
 .swiper-pagination-horizontal.swiper-pagination-bullets
   .swiper-pagination-bullet {
-  margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 6px);
+  margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 6px) !important;
 }
 
 //worksギャラリー
@@ -123,4 +128,31 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
+}
+
+.gallery__slider .swiper-button-prev {
+  left: 7px;
+  @include mq(md) {
+    left: 17px;
+  }
+}
+.gallery__slider .swiper-button-prev::after {
+  content: url(../images/prevbtn.png);
+  transform: scale(0.6);
+  @include mq(md) {
+    transform: scale(1);
+  }
+}
+.gallery__slider .swiper-button-next {
+  right: 7px;
+  @include mq(md) {
+    right: 17px;
+  }
+}
+.gallery__slider .swiper-button-next::after {
+  content: url(../images/nextbtn.png);
+  transform: scale(0.6);
+  @include mq(md) {
+    transform: scale(1);
+  }
 }

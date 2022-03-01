@@ -3,8 +3,8 @@
 <section class="common-mv">
   <div class="common-mv__img">
     <picture>
-      <source srcset="<?php echo esc_url(get_theme_file_uri('/images/common-mv/blog-pc.jpg')); ?>" media="(min-width: 768px)" />
-      <img src="<?php echo esc_url(get_theme_file_uri('/images/common-mv/blog-sp.jpg')); ?>" alt="" />
+      <source srcset="<?php echo esc_url(get_theme_file_uri('/images/common-mv/works-pc.jpg')); ?>" media="(min-width: 768px)" />
+      <img src="<?php echo esc_url(get_theme_file_uri('/images/common-mv/works-sp.jpg')); ?>" alt="" />
     </picture>
   </div>
   <div class="common-mv__wrapper">
