@@ -2441,8 +2441,15 @@ textarea {
 }
 
 .page-content__contents {
-  margin-top: 80px;
-  margin-top: 5rem;
+  margin: 5rem calc(50% - 50vw) 0;
+  width: 100vw;
+}
+@media screen and (min-width: 768px) {
+  .page-content__contents {
+    width: auto;
+    width: initial;
+    margin: 5rem 0 0;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -2477,7 +2484,7 @@ textarea {
 
 @media screen and (min-width: 768px) {
   .page-content__img {
-    width: 50.46%;
+    width: 34.375rem;
   }
 }
 
@@ -2487,8 +2494,8 @@ textarea {
 }
 @media screen and (min-width: 768px) {
   .page-content__wrapper {
-    width: 46.79%;
-    padding: 1.875rem;
+    padding: 1.5rem 1.875rem;
+    width: calc(100% - 34.375rem);
   }
 }
 

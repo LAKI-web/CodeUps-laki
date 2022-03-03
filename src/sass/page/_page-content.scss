@@ -1,15 +1,17 @@
 @use "global" as *;
 
-.page-content {
-}
-
 .page-content__header {
   padding-top: 0;
   padding-bottom: 0;
 }
 
 .page-content__contents {
-  margin-top: rem(80);
+  margin: rem(80) calc(50% - 50vw) 0;
+  width: 100vw;
+  @include mq(md) {
+    width: initial;
+    margin: rem(80) 0 0;
+  }
 }
 
 .page-content__content {
@@ -35,15 +37,18 @@
 
 .page-content__img {
   @include mq(md) {
-    width: 50.46%;
+    // width: 50.46%;
+    width: rem(550);
   }
 }
 
 .page-content__wrapper {
   padding: rem(24) rem(20);
   @include mq(md) {
-    width: 46.79%;
-    padding: rem(30);
+    // width: 46.79%;
+    // padding: rem(30);
+    padding: rem(24) rem(30);
+    width: calc(100% - #{rem(550)});
   }
 }
 

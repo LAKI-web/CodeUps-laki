@@ -25,7 +25,7 @@
         テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
       </p>
     </div>
-  </div>
+  
   <div class="page-content__contents">
     <div id="philosophy1" class="page-content__content">
       <div class="page-content__img">
@@ -74,6 +74,7 @@
     <!-- /.page-content__content -->
   </div>
   <!-- /.page-content__contents -->
+  </div>
 </section>
 <!-- /.page-content -->
 
